@@ -46,7 +46,7 @@
 				<p>Phone: <input id="editPhone" type="text"></p>
 				<p>adressess: <input id="editadressess" type="text"></p>
 				<p>Department: <input id="editDepartment" type="text"></p>
-				<p><input id="IValue" style="display:none" type="text"></p><br>
+				<p><input id="editedIValue" style="display:none" type="text"></p><br>
 			</div>
 			<div class="modal-footer">
 				<button aria-label="Close" class="btn btn-primary" data-dismiss="modal" onclick="saveRecords()" type="button">Save</button> <button class="btn btn-secondary" data-dismiss="modal" onclick="cancel()" type="button">Cancel</button>
@@ -325,22 +325,15 @@ function editRecord(x) {
 	editedadressess.value = currentRow.cells[3].innerHTML;
 	editedDepartment = document.getElementById("editDepartment");
 	editedDepartment.value = currentRow.cells[4].innerHTML;
-	editedIValue = document.getElementById("IValue");
-	editedIValue.value = currentRow.cells[7].innerHTML;
-	editedIValue.style.visibility = "collapse";
+	editedIValue.value = x;
 }
 
 function saveRecords() {
 	var table = document.getElementById("hrtable");
 	var row = table.rows;
-	var iValue = document.getElementById("iValue");
-    console.log(iValue);
+    var iValue = document.getElementById("editedIValue");
 
 	iValue = parseInt(iValue.value);
-
-    console.log(iValue);
-
-
 	iValue += 1;
 	var currentRow = row[iValue];
 	editedNino = document.getElementById("editNI");
